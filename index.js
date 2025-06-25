@@ -1,77 +1,83 @@
 const cells = document.querySelectorAll(".cell");
 const statusText = document.querySelector("#statusText");
 const restartButton = document.querySelector("#restartButton");
-const windConditions = [
+const winConditions = [
+    // peluang menang horizontal
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
+    // peluang menang vertikal
     [0, 3, 6],
     [1, 4, 7],
     [2, 5, 8],
+    // peluang menang garis miring
     [0, 4, 8],
     [2, 4, 6]
 ];
 
-let options = ["", "", "", "", "", "", "", "", ""];
+let options = ["", "", "", "", "", "", "", "", ""]; //tujuannya untuk mendeklarasikan tiap tiap coloumn pada game
 let currentPlayer = "X";
 let running = false; 
 
 initializeGame();
 
 function initializeGame(){
-    cells.forEach(cell => cell.addEventListener("click", cellClicked));
+    cells.forEach(cell => cell.addEventListener("click", cellClicked)); //untuk memulai game dengan mengklik class "cell"
     restartButton.addEventListener("click", restartGame);
-    statusText.textContent = `${currentPlayer}'s turn`;
-    running = 'true';
+    statusText.textContent = `${currentPlayer}'s turn`; //statusText sendiri berasal dari deklarasian id di halaman html, dan dimasukan kedalam variabel const statusText, sementara textContent adalah element DOM untuk mendapatkan teks murni tanpa tag HTML
+    running = true; //running true memastikan bahwa game sedang berjalan
 }
 function cellClicked(){
     const cellIndex = this.getAttribute("cellIndex");
     if (options[cellIndex] != "" || !running){
         return;
-    }
+    } //untuk menjalankan suatu fungsi ketika user mengklik coloumn ber id cellIndex dan menyeleksi apakah id cellIndex tidak ada yang kosong atau running, kalo ngga dia bakal berhenti
     updateCell(this, cellIndex);
-    checkWinner();
+    checkWinner(); //untuk mengecek pemain dan mengupdate keterangan pemain pada cell
 }
 function updateCell(cell, index){
     options[index] = currentPlayer;
     cell.textContent = currentPlayer;
-}
+} //untuk menyimpan simbol pemain saat ini pada coloumn index atau kotak papan permainan
+
 function changePlayer(){
     currentPlayer = (currentPlayer == "X") ? "O" : "X";
     statusText.textContent = `${currentPlayer}'s turn`;
-}
+} //fungsi ini digunakan untuk mengganti pemain, cara bacanya = currentPlayer apakah X? kalo iya maka slanjutnya akan diganti O begitupun seterusnya
 function checkWinner(){
-    let roundWon =  false;
-    for(let i = 0; i < windConditions.length; i++){
-        const condition = windConditions[i];
+    let roundWon =  false; //kalalu ngga ada yang menang
+    for(let i = 0; i < winConditions.length; i++){
+        const condition = winConditions[i];
         const cellA = options[condition[0]];
         const cellB = options[condition[1]];
         const cellC = options[condition[2]];
 
+        // fungsi ini digunakan untuk mengecek cell baris
+
         if(cellA == "" || cellB == "" || cellC == ""){
             continue;
-        }
+        } //kalau cell a b dan c ada yang kosong alias ngga ada pemenang maka dia akan tetap melanjutkan
         if(cellA == cellB && cellB == cellC){
             roundWon = true;
             break;
-        }
+        } // tapi kalo cell a b dan c sudah terisi maka roundWon akan berubah jadi true artinya pemenang di tentukan dan akan berhenti gamenya
     }
 
     if(roundWon) {
         statusText.textContent = `${currentPlayer}'s wins!`
-        running = false;
+        running = false; //mencetak siapa yang menang
     }
     else if(!options.includes("")) {
         statusText.textContent = 'Draw';
-        running = false;
+        running = false; //fungsi ini digunakan ketika tidak ada yang kosong alias coloumn sudah penuh semua maka akan mencetak seri dan menampilkan statusText
     } else {
-        changePlayer();
+        changePlayer(); //atau akan berganti pemain, atau setelah mencetak statusText dia akan langsung berganti pemain
     }
 }
 function restartGame(){
-    currentPlayer = "X";
-    let options = ["", "", "", "", "", "", "", "", ""];
+    currentPlayer = "X"; //menentukan default pemain pertama
+    options = ["", "", "", "", "", "", "", "", ""]; //memanggil kolom kolom pada game
     statusText.textContent = `${currentPlayer}'s turn`;
-    cells.forEach(cell => cell.textContent = "");
-    running = true; 
+    cells.forEach(cell => cell.textContent = ""); //memastikan bahkan text content ada yang kosong
+    running = true; //permainan dijalankan
 }
