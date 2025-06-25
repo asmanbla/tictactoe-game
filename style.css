@@ -1,21 +1,247 @@
-.cell {
-    width: 75px;
-    height: 75px;
-    border: 2px solid;
-    box-shadow: 0 0 0 2px;
-    line-height: 75px;
-    font-size: 50px;
-    cursor: pointer;
+* {
+    font-family: 'Poppins', 'Inter', sans-serif;
 }
 
-#gameContainer {
-    font-family: "Permanent marker", cursive;
+/* css header awal */
+.hero-section {
+    padding: 60px 20px;
+    background-color: #ffffff;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: auto;
+    flex-wrap: wrap;
+}
+
+.hero-left {
+    flex: 1;
+    min-width: 300px;
+}
+
+.hero-left h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-left .bold {
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.hero-left .highlight {
+    color: #962727;
+    font-weight: 600;
+}
+
+.hero-left p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: #444;
+}
+
+.hero-button {
+    background-color: #9c3737;
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.hero-button:hover {
+    background-color: #9a1f1f;
+}
+
+.hero-right img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+header {
+  background-color: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 10px 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Container utama navbar */
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+/* Logo */
+.logo {
+  height: 36px;
+  width: 40px
+}
+
+/* Menu Tengah */
+.navbar-menu {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  margin-right: 250px;
+  padding: 0;
+  text-align: left;
+}
+
+.navbar-menu li a {
+  text-decoration: none;
+  color: #1f2937;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.navbar-menu li a i {
+  font-size: 12px;
+  margin-left: 4px;
+}
+
+/* Area Kanan */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Search */
+.search-group {
+  display: flex;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.search-input {
+  border: none;
+  padding: 8px 12px;
+  width: 140px;
+  outline: none;
+  font-size: 14px;
+}
+
+.search-select {
+  border: none;
+  background: #f9fafb;
+  padding: 8px 10px;
+  font-size: 14px;
+  color: #374151;
+  outline: none;
+}
+
+/* Icon lonceng */
+.notification-icon {
+  font-size: 18px;
+  color: #4b5563;
+  cursor: pointer;
+}
+
+/* Tombol Login */
+.login-btn {
+  background-color: #a01a1a;
+  color: white;
+  border: none;
+  padding: 7px 18px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  text-decoration: none;
+}
+
+.login-btn:hover {
+  background-color: #9a9191;
+}
+
+.content-section {
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.content-section h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 10px;
     text-align: center;
 }
 
-#cellContainer {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    width: 225px;
-    margin: auto;
+.content-section p, 
+.content-section ol {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+/* =====================
+   Section Content Style
+   ===================== */
+.content-section {
+    padding: 30px 20px;                 
+    max-width: 700px;                   
+    margin: 0 auto 30px auto;           
+    background-color: #fdfdfd;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.content-section:hover {
+    transform: scale(1.01);
+}
+
+/* Section Title */
+.content-section h2 {
+    font-size: 2rem;
+    color: #2d2d2d;
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.content-section h2::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: #b83f3f;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* Paragraph Text */
+.content-section p {
+    font-size: 1.1rem;
+    color: #4a4a4a;
+    line-height: 1.7;
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+/* Ordered List */
+.content-section ol {
+    padding-left: 20px;
+    color: #333;
+}
+
+.content-section ol li {
+    margin-bottom: 10px;
+    font-size: 1rem;
 }

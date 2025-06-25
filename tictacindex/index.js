@@ -18,6 +18,8 @@ const winConditions = [
 let options = ["", "", "", "", "", "", "", "", ""]; //tujuannya untuk mendeklarasikan tiap tiap coloumn pada game
 let currentPlayer = "X";
 let running = false; 
+let scoreX = 0;
+let scoreO = 0;
 
 initializeGame();
 
@@ -66,7 +68,16 @@ function checkWinner(){
     if(roundWon) {
         statusText.textContent = `${currentPlayer}'s wins!`
         running = false; //mencetak siapa yang menang
-    }
+
+        if (currentPlayer === "X") {
+        scoreX++; 
+        document.getElementById("scoreX").textContent = scoreX;
+        } else {
+            scoreO++;
+            document.getElementById("scoreO").textContent = scoreO;
+        } //fungsi ini digunakan untuk menghitung seberapa banyak score menang dari currentplayers
+        
+    } 
     else if(!options.includes("")) {
         statusText.textContent = 'Draw';
         running = false; //fungsi ini digunakan ketika tidak ada yang kosong alias coloumn sudah penuh semua maka akan mencetak seri dan menampilkan statusText
@@ -74,10 +85,11 @@ function checkWinner(){
         changePlayer(); //atau akan berganti pemain, atau setelah mencetak statusText dia akan langsung berganti pemain
     }
 }
+
 function restartGame(){
     currentPlayer = "X"; //menentukan default pemain pertama
-    options = ["", "", "", "", "", "", "", "", ""]; //memanggil kolom kolom pada game
+    options = ["", "", "", "", "", "", "", "", ""]; //memanggil variabel option pendeklarasian kolom kolom pada game
     statusText.textContent = `${currentPlayer}'s turn`;
-    cells.forEach(cell => cell.textContent = ""); //memastikan bahkan text content ada yang kosong
+    cells.forEach(cell => cell.textContent = ""); //untuk menghapus tiap text yang ada pada cell tiap game di restart, atau function restartGame dijalankan
     running = true; //permainan dijalankan
 }

@@ -3,26 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic Tac Game</title>
+    <title>Landingpage Tic Tac Toe</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="logo.jpg">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="gameContainer">
-        <h1>Tic Tac Toe</h1>
-        <div id="cellContainer">
-            <div cellIndex="0" class="cell"></div>
-            <div cellIndex="1" class="cell"></div>
-            <div cellIndex="2" class="cell"></div>
-            <div cellIndex="3" class="cell"></div>
-            <div cellIndex="4" class="cell"></div>
-            <div cellIndex="5" class="cell"></div>
-            <div cellIndex="6" class="cell"></div>
-            <div cellIndex="7" class="cell"></div>
-            <div cellIndex="8" class="cell"></div>
-        </div>
-        <h2 id="statusText"></h2>
-        <button id="restartButton">Restart Game</button>
-    </div>
-    <script src="index.js"></script>
+    <!-- Header -->
+
+    <header>
+        <nav class="navbar-container">
+            <!-- Logo -->
+            <div class="navbar-left">
+                <img src="logo.jpg" alt="Tic Tac Toe Logo" class="logo" width="120px" height="50px">
+            </div>
+
+            <!-- Menu Bagian Tengah -->
+            <ul class="navbar-menu">
+                <li class="dropdown">
+                    <a href="#sejarah">Sejarah Game <i class="bi bi-chevron-down"></i></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#tujuan">Tujuan Bermain <i class="bi bi-chevron-down"></i></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#tentang">Tentang Game <i class="bi bi-chevron-down"></i></a>
+                </li>
+            </ul>
+
+            <!-- Kanan: Search + Dropdown + Notif + Login -->
+            <div class="navbar-right">
+                <i class="bi bi-bell notification-icon"></i>
+                <a href="tictacindex/index.html" class="login-btn" type = "button">Mulai Bermain Sekarang →</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Isi Content -->
+
+    <!-- header awal content -->
+     <!-- Landing Page Halaman Depan -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-left">
+                    <h1>
+                        <span class="bold">Mainkan Tic Tac Toe</span> <br>
+                        <span class="highlight">Seru, Cepat, dan Bikin Ketagihan!</span>
+                    </h1>
+                    <p>Tantang temanmu dalam permainan klasik yang penuh strategi. Siapa yang bisa menyusun tiga simbol lebih dulu?</p>
+                    <a href="tictacindex/index.html" class="hero-button" type = "button">Mulai Bermain Sekarang →</a>
+                </div>
+                <div class="hero-right">
+                    <img src="logo.jpg" alt="Ilustrasi Tic Tac Toe" width="320px" height="320px">
+                </div>
+            </div>
+        </section>
+
+
+    <br><br>
+
+    <main>
+        <!-- SEJARAH GAME -->
+        <section class="content-section" id="sejarah">
+            <h2>Sejarah Game Tic Tac Toe</h2>
+            <p>
+                Tic Tac Toe, atau yang dikenal juga sebagai "Noughts and Crosses" di Inggris, adalah permainan kuno
+                yang sudah dimainkan sejak zaman Romawi kuno. Bukti sejarah menunjukkan bahwa permainan serupa
+                telah dimainkan di atas batu pada abad ke-1 SM. Permainan ini terus berkembang dan menjadi sangat
+                populer karena kesederhanaannya, serta kemampuannya untuk dimainkan di mana saja hanya dengan
+                pensil dan kertas.
+            </p>
+        </section>
+
+        <!-- TUJUAN BERMAIN -->
+        <section class="content-section" id="tujuan">
+            <h2>Tujuan Bermain Tic Tac Toe</h2>
+            <p>
+                Tujuan utama dari permainan ini adalah menjadi pemain pertama yang berhasil menyusun tiga simbol
+                secara berurutan — baik secara horizontal, vertikal, maupun diagonal. Tic Tac Toe mengajarkan
+                keterampilan berpikir strategis dan perencanaan ke depan, serta dapat menjadi alat pembelajaran
+                logika yang menyenangkan.
+            </p>
+        </section>
+
+        <!-- TENTANG GAME / CARA BERMAIN -->
+        <section class="content-section" id="tentang">
+            <h2>Tentang Game & Cara Bermain</h2>
+            <p>
+                Tic Tac Toe dimainkan oleh dua orang. Pemain pertama menggunakan simbol "X", dan pemain kedua
+                menggunakan simbol "O". Pemain secara bergiliran menempatkan simbol mereka di salah satu dari
+                sembilan kotak dalam grid 3x3. Permainan berakhir jika salah satu pemain berhasil membuat garis
+                lurus dari tiga simbol miliknya, atau jika seluruh kotak terisi tanpa pemenang (berakhir seri).
+            </p>
+            <ol>
+                <li>Pilih siapa yang akan bermain sebagai "X" dan siapa sebagai "O".</li>
+                <li>Pemain X memulai terlebih dahulu, diikuti oleh pemain O secara bergiliran.</li>
+                <li>Tempatkan simbol secara bergantian di dalam kotak kosong.</li>
+                <li>Pemenang adalah yang pertama menyusun 3 simbol secara horizontal, vertikal, atau diagonal.</li>
+                <li>Jika semua kotak terisi dan tidak ada pemenang, maka permainan dianggap seri.</li>
+            </ol>
+        </section>
+    </main>
+
 </body>
 </html>
