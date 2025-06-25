@@ -27,9 +27,16 @@
         <button id="restartButton">Restart Game</button>
         <a href="../index.html" id="backButton" >Kembali</a>
 
-        <div id="scoreboard" style="text-align: center; margin-bottom: 20px;">
-            <h3>Total Score</h3>
-            <p>X: <span id="scoreX">0</span> | O: <span id="scoreO">0</span></p>
+        <div id="container" style="display: flex; justify-content: center; gap: 50px;">
+            <div id="scoreboard" style="text-align: center;">
+                <h3>Total Score</h3>
+                <p>X Won: <span id="scoreX">0</span> | O Won: <span id="scoreO">0</span></p>
+            </div>
+
+            <div id="match-history" style="text-align: center;">
+                <h3>Match History:</h3>
+                <ul id="history" style="list-style-type: none; padding-left: 0;"></ul>
+            </div>
         </div>
 
     </div>

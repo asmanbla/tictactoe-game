@@ -102,3 +102,13 @@ body {
 #backButton:hover {
     background-color: rgb(218, 74, 74);
 }
+
+#history-container {
+    text-align: center;
+}
+
+#history {
+    list-style-type: none;
+    padding-left: none;
+    text-align: center;
+}

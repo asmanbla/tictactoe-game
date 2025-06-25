@@ -20,6 +20,7 @@ let currentPlayer = "X";
 let running = false; 
 let scoreX = 0;
 let scoreO = 0;
+let history = [];
 
 initializeGame();
 
@@ -69,9 +70,9 @@ function checkWinner(){
         statusText.textContent = `${currentPlayer}'s wins!`
         running = false; //mencetak siapa yang menang
 
-        if (currentPlayer === "X") {
-        scoreX++; 
-        document.getElementById("scoreX").textContent = scoreX;
+        if(currentPlayer === "X") {
+            scoreX++ ; 
+            document.getElementById("scoreX").textContent = scoreX;
         } else {
             scoreO++;
             document.getElementById("scoreO").textContent = scoreO;
@@ -81,8 +82,13 @@ function checkWinner(){
     else if(!options.includes("")) {
         statusText.textContent = 'Draw';
         running = false; //fungsi ini digunakan ketika tidak ada yang kosong alias coloumn sudah penuh semua maka akan mencetak seri dan menampilkan statusText
+
+        history.push(`Game ${history.length + 1} : Draw`);
+        updateHistory(); 
+        //fungsi ini digunakan untuk menghitung berapa total seri Draw
+
     } else {
-        changePlayer(); //atau akan berganti pemain, atau setelah mencetak statusText dia akan langsung berganti pemain
+        changePlayer(); //atau akan berganti pemain
     }
 }
 
@@ -92,4 +98,15 @@ function restartGame(){
     statusText.textContent = `${currentPlayer}'s turn`;
     cells.forEach(cell => cell.textContent = ""); //untuk menghapus tiap text yang ada pada cell tiap game di restart, atau function restartGame dijalankan
     running = true; //permainan dijalankan
+}
+
+function updateHistory() {
+    const historyList = document.getElementById("history");
+    historyList.innerHTML = "";
+
+    history.forEach((match, index) => {
+        const li = document.createElement("li");
+        li.textContent = `Game ${index + 1}: ${match}`;
+        historyList.appendChild(li);
+    });
 }
